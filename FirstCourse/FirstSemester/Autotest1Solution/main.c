@@ -67,7 +67,7 @@ int main(void){
 
     tmp = 0;
     for (int i = 0; i < sm.size; i++){
-        if (sm.arr[i]-sm.sred_ar <= (double)sm.m/sm.n && sm.arr[i]-sm.sred_ar >= (-1) * (double)sm.m/sm.n){
+        if (((double)sm.arr[i]-sm.sred_ar <= (double)sm.m/sm.n) && ((double)sm.arr[i]-sm.sred_ar >= (-1) * (double)sm.m/sm.n)){
             sm.idx[tmp++] = i;
         }
         sm.size_idx = tmp;
@@ -91,4 +91,5 @@ int main(void){
 
     return 0;
 }
+
 
