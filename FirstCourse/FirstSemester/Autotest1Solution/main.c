@@ -91,8 +91,3 @@ int main(void){
 
     return 0;
 }
-    fclose(out);
-
-    return 0;
-
-}
