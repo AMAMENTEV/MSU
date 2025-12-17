@@ -63,7 +63,7 @@ int main(void){
     fclose(f);
 
     for (int i = 1; i < sm.size-1; i++){
-        if ((double)sm.arr[i] == sm.sred_ar * sm.m / sm.n){
+        if (((double)sm.arr[i] <= sm.sred_ar * sm.m / sm.n) && ((double)sm.arr[i] >= sm.sred_ar * sm.m / sm.n)){
             tmp = (sm.arr[i-1]+sm.arr[i+1]) / 2;
             sm.arr[i] = tmp;
         }
@@ -77,3 +77,4 @@ int main(void){
 
     return 0;
 }
+
