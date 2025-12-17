@@ -58,16 +58,16 @@ int main(void){
     for (int i = 0; i < sm.size; i++){
         fscanf(f,"%d", &sm.arr[i]);
 
-        sm.sred_ar += sm.arr[i]/sm.size;
+        sm.sred_ar += (double)sm.arr[i]/sm.size;
     }
 
     fclose(f);
 
     sm.idx = (int*)malloc((size_t)sm.size * sizeof(int));
 
+    tmp = 0;
     for (int i = 0; i < sm.size; i++){
-        tmp = 0;
-        if (sm.arr[i]-sm.sred_ar <= sm.m/sm.n && sm.arr[i]-sm.sred_ar >= (-1) * sm.m/sm.n){
+        if (sm.arr[i]-sm.sred_ar <= (double)sm.m/sm.n && sm.arr[i]-sm.sred_ar >= (-1) * (double)sm.m/sm.n){
             sm.idx[tmp++] = i;
         }
         sm.size_idx = tmp;
@@ -90,4 +90,9 @@ int main(void){
     fclose(out);
 
     return 0;
+}
+    fclose(out);
+
+    return 0;
+
 }
