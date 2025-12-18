@@ -7,7 +7,6 @@ typedef struct
     int n;
     int size;
     int* arr;
-    double sred_ar;
 
 }SmartArray;
 
@@ -17,7 +16,8 @@ int main(void){
     int tmp = 0;
     FILE * f = fopen("input.txt", "r");
     FILE * out = fopen("output.txt", "w");
-
+    int sum = 0;
+    
     if (!f){
         return -1;
     }
@@ -26,7 +26,6 @@ int main(void){
     }
 
     sm.size = 0;
-    sm.sred_ar = 0;
 
     while(fscanf(f, "%d", &tmp) == 1){
         sm.size++;
@@ -57,15 +56,14 @@ int main(void){
     for (int i = 0; i < sm.size; i++){
         fscanf(f,"%d", &sm.arr[i]);
 
-        sm.sred_ar += (double)sm.arr[i]/sm.size;
+        sum += sm.arr[i];
     }
 
     fclose(f);
 
     for (int i = 1; i < sm.size-1; i++){
-        if (((double)sm.arr[i] <= sm.sred_ar * sm.m / sm.n) && ((double)sm.arr[i] >= sm.sred_ar * sm.m / sm.n)){
-            tmp = (sm.arr[i-1]+sm.arr[i+1]) / 2;
-            sm.arr[i] = tmp;
+        if (sm.size * sm.arr[i] * sm.n == sum * sm.m);
+            sm.arr[i] = (sm.arr[i-1] + sm.arr[i-1]) / 2;
         }
     }
 
@@ -77,4 +75,5 @@ int main(void){
 
     return 0;
 }
+
 
