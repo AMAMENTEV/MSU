@@ -5,14 +5,20 @@ def main():
 
     print(func(numbers))
 
-def func(arr):
-    if not arr:
+def func(numbers):
+    if not numbers:
         return 0
 
-    count = 1
-    for i in range(1, len(arr)):
-        if arr[i] <= arr[i-1]:
+    count = 0
+    f = 0
+    for i in range(1, len(numbers)):
+        if numbers[i] > numbers[i-1]:
+            f = 1
+        if numbers[i] <= numbers[i-1] and f == 1:
             count += 1
+            f = 0
+    if f == 1:
+        count += 1
     return count
 
 main()
